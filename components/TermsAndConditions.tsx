@@ -39,16 +39,21 @@ export default function TermsAndConditions() {
     setIsSubmitting(true);
     try {
       // First register the user
+      if (!accountData) {
+  console.error("Missing account data");
+  return;
+}
+
       const registerResponse = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: accountData.email,
-          password: accountData.password,
-          name: accountData.fullName,
-        }),
+  email: accountData?.email || '',
+  password: accountData?.password || '',
+  name: accountData?.fullName || '',
+}),
       });
 
       if (!registerResponse.ok) {
