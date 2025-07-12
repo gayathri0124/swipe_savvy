@@ -10,12 +10,30 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import ProgressBar from './ProgressBar';
 import { FileText, Gift, Star, BarChart3, Truck } from 'lucide-react';
 
+interface AccountData {
+  email: string;
+  password: string;
+  fullName: string;
+  mobileNumber?: string;
+  website?: string;
+}
+
+interface BusinessData {
+  name: string;
+  address: string;
+  phone?: string;
+  placeId: string;
+  latitude: number;
+  longitude: number;
+}
+
 export default function TermsAndConditions() {
   const router = useRouter();
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [businessData, setBusinessData] = useState(null);
-  const [accountData, setAccountData] = useState(null);
+  const [businessData, setBusinessData] = useState<BusinessData | null>(null);
+  const [accountData, setAccountData] = useState<AccountData | null>(null);
+
 
   useEffect(() => {
     const verifiedBusiness = localStorage.getItem('verifiedBusiness');
