@@ -44,8 +44,8 @@ export default function TermsAndConditions() {
       return;
     }
     
-    setBusinessData(JSON.parse(verifiedBusiness));
-    setAccountData(JSON.parse(accountInfo));
+    setBusinessData(JSON.parse(verifiedBusiness) as BusinessData);
+setAccountData(JSON.parse(accountInfo) as AccountData);
   }, [router]);
 
   const handleActivate = async () => {
