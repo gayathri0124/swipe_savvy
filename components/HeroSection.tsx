@@ -74,14 +74,21 @@ export default function HeroSection() {
       </div>
 
       {/* Logo */}
+     
+
       <div className="absolute top-8 left-8 z-20">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">S</span>
-          </div>
-          <span className="text-white font-bold text-xl">Swipe Savvy</span>
-        </div>
-      </div>
+  <div className="flex items-center gap-2">
+    <Image
+      src="/sipe savvy.png"
+      alt="Swipe Savvy Logo"
+      width={200}
+      height={100}
+      priority
+      className="object-contain"
+    />
+    
+  </div>
+</div>
 
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
@@ -116,7 +123,7 @@ export default function HeroSection() {
               <Button
                 onClick={handleSearch}
                 disabled={isSearching || !searchQuery.trim()}
-                className="absolute right-2 top-1/2 -translate-y-1/2 px-3 sm:px-4 bg-blue-600 hover:bg-blue-700 rounded-lg"
+                className="absolute right-0 top-1/2 -translate-y-1/2 px-3 sm:px-4 bg-blue-600 hover:bg-blue-700 rounded-lg"
               >
                 <Search className="w-5 h-5" />
               </Button>
