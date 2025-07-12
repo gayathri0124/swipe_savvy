@@ -49,88 +49,88 @@ setAccountData(JSON.parse(accountInfo) as AccountData);
   }, [router]);
 
   const handleActivate = async () => {
-    if (!agreedToTerms) {
-      alert('Please agree to the terms and conditions to continue.');
-      return;
+  if (!agreedToTerms) {
+    alert('Please agree to the terms and conditions to continue.');
+    return;
+  }
+
+  if (!accountData || !businessData) {
+    console.error("Missing account or business data");
+    return;
+  }
+
+  setIsSubmitting(true);
+  try {
+    // First register the user
+    const registerResponse = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: accountData.email,
+        password: accountData.password,
+        name: accountData.fullName,
+      }),
+    });
+
+    if (!registerResponse.ok) {
+      throw new Error('Failed to create account');
     }
 
-    setIsSubmitting(true);
-    try {
-      // First register the user
-      if (!accountData) {
-  console.error("Missing account data");
-  return;
-}
+    // Login
+    const loginResponse = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: accountData.email,
+        password: accountData.password,
+      }),
+    });
 
-      const registerResponse = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-  email: accountData?.email || '',
-  password: accountData?.password || '',
-  name: accountData?.fullName || '',
-}),
-      });
-
-      if (!registerResponse.ok) {
-        throw new Error('Failed to create account');
-      }
-
-      // Then login the user
-      const loginResponse = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: accountData.email,
-          password: accountData.password,
-        }),
-      });
-
-      if (!loginResponse.ok) {
-        throw new Error('Failed to login');
-      }
-
-      // Submit business listing
-      const businessResponse = await fetch('/api/business/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          businessName: businessData.name || '',
-          businessType: 'General Business',
-          address: businessData.address || '',
-          phone: businessData.phone || accountData.mobileNumber || '',
-          email: accountData.email || '',
-          website: accountData.website || '',
-          description: `${businessData.name} - Now part of the Swipe Savvy Rewards Network`,
-          googlePlaceId: businessData.placeId || '',
-          latitude: businessData.latitude || '',
-          longitude: businessData.longitude || '',
-        }),
-      });
-
-      if (!businessResponse.ok) {
-        throw new Error('Failed to create business listing');
-      }
-
-      // Clear localStorage and redirect to success
-      localStorage.removeItem('businessSearch');
-      localStorage.removeItem('verifiedBusiness');
-      localStorage.removeItem('accountData');
-      
-      router.push('/success');
-    } catch (error) {
-      console.error('Activation error:', error);
-      alert('Failed to activate your listing. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+    if (!loginResponse.ok) {
+      throw new Error('Failed to login');
     }
-  };
+
+    // Submit business
+    const businessResponse = await fetch('/api/business/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        businessName: businessData.name,
+        businessType: 'General Business',
+        address: businessData.address,
+        phone: businessData.phone || accountData.mobileNumber,
+        email: accountData.email,
+        website: accountData.website,
+        description: `${businessData.name} - Now part of the Swipe Savvy Rewards Network`,
+        googlePlaceId: businessData.placeId,
+        latitude: businessData.latitude,
+        longitude: businessData.longitude,
+      }),
+    });
+
+    if (!businessResponse.ok) {
+      throw new Error('Failed to create business listing');
+    }
+
+    localStorage.removeItem('businessSearch');
+    localStorage.removeItem('verifiedBusiness');
+    localStorage.removeItem('accountData');
+
+    router.push('/success');
+  } catch (error) {
+    console.error('Activation error:', error);
+    alert('Failed to activate your listing. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   if (!businessData || !accountData) {
     return (
