@@ -116,7 +116,7 @@ export default function HeroSection() {
               <Button
                 onClick={handleSearch}
                 disabled={isSearching || !searchQuery.trim()}
-                className="absolute right-2 top-2 bottom-2 px-3 sm:px-4 bg-blue-600 hover:bg-blue-700 rounded-lg"
+                className="absolute right-2 top-1/2 -translate-y-1/2 px-3 sm:px-4 bg-blue-600 hover:bg-blue-700 rounded-lg"
               >
                 <Search className="w-5 h-5" />
               </Button>
@@ -125,7 +125,7 @@ export default function HeroSection() {
             <Button
               onClick={handleSearch}
               disabled={isSearching || !searchQuery.trim()}
-              className="w-full text-base sm:text-lg py-5 sm:py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="w-full text-sm sm:text-base py-4 sm:py-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 text-center leading-snug"
             >
               {isSearching ? 'Searching...' : '🔍 Locate Your Business to Claim Your Free Listing'}
             </Button>
