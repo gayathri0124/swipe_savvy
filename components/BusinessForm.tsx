@@ -104,18 +104,18 @@ export default function BusinessForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4 sm:px-6">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 text-center">
             Get Your Business Discovered
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-base sm:text-xl text-gray-600 text-center">
             Join thousands of local businesses on Swipe Savvy
           </p>
         </div>
 
-        <Card className="shadow-xl">
+        <Card className="shadow-xl px-4 sm:px-6 py-6">
           <CardHeader>
             <CardTitle className="text-2xl text-center">Business Information</CardTitle>
           </CardHeader>
@@ -132,7 +132,7 @@ export default function BusinessForm() {
                   onChange={(e) => handleInputChange('businessName', e.target.value)}
                   placeholder="Enter your business name"
                   required
-                  className="text-lg"
+className="text-base sm:text-lg"
                 />
               </div>
 
@@ -231,7 +231,7 @@ export default function BusinessForm() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700"
+                className="w-full text-base sm:text-lg py-4 sm:py-6 bg-blue-600 hover:bg-blue-700"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit My Business Listing'}
               </Button>

@@ -96,7 +96,7 @@ export default function BusinessVerification() {
     return (
       <div className="min-h-screen bg-gray-50">
         <ProgressBar currentStep={1} totalSteps={4} />
-        <div className="max-w-2xl mx-auto px-4 py-12">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <Card className="border-red-200">
             <CardContent className="text-center py-12">
               <div className="text-red-500 text-6xl mb-4">⚠️</div>
@@ -119,8 +119,8 @@ export default function BusinessVerification() {
       
       <div className="max-w-2xl mx-auto px-4 py-12">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Is This Your Business?</h1>
-          <p className="text-gray-600">We found the following match for your entry. Please confirm before proceeding.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Is This Your Business?</h1>
+          <p className="text-sm sm:text-base text-gray-600">We found the following match for your entry. Please confirm before proceeding.</p>
         </div>
 
         <Card className="shadow-lg">
@@ -133,15 +133,15 @@ export default function BusinessVerification() {
                 <Image
                   src={businessData.photoUrl}
                   alt={businessData.name}
-                  width={200}
-                  height={150}
-                  className="rounded-lg mx-auto object-cover"
+                  width={400}
+                  height={250}
+                  className="rounded-lg mx-auto object-cover w-full max-w-sm"
                 />
               </div>
             )}
 
             <div className="space-y-4">
-              <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-4 bg-gray-50 rounded-lg">
                 <Building2 className="w-5 h-5 text-blue-600" />
                 <div>
                   <p className="font-semibold text-gray-900">{businessData?.name}</p>
@@ -168,10 +168,10 @@ export default function BusinessVerification() {
               )}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full">
               <Button
                 onClick={handleConfirm}
-                className="flex-1 bg-green-600 hover:bg-green-700 text-lg py-6"
+                className="w-full sm:w-auto flex-1 bg-green-600 hover:bg-green-700 text-base sm:text-lg py-4 sm:py-6"
               >
                 ➡️ Yes, This Is Me
               </Button>
@@ -179,7 +179,7 @@ export default function BusinessVerification() {
               <Button
                 onClick={handleTryAgain}
                 variant="outline"
-                className="flex-1 text-lg py-6 border-2"
+                className="w-full sm:w-auto flex-1 text-base sm:text-lg py-4 sm:py-6 border-2"
               >
                 ↩️ No, Try Again
               </Button>

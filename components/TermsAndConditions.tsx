@@ -144,14 +144,14 @@ setAccountData(JSON.parse(accountInfo) as AccountData);
     <div className="min-h-screen bg-gray-50">
       <ProgressBar currentStep={3} totalSteps={4} />
       
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-122">
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">📜</div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Just One More Step</h1>
           <p className="text-gray-600">Please review and agree to our terms before activating your account.</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
           {/* Main Content */}
           <div className="lg:col-span-2">
             <Card className="shadow-lg">

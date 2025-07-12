@@ -72,10 +72,10 @@ export default function AccountCreation() {
     <div className="min-h-screen bg-gray-50">
       <ProgressBar currentStep={2} totalSteps={4} />
       
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Your Swipe Savvy Account</h1>
-          <p className="text-gray-600">Set up your account to manage your business listing</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">Create Your Swipe Savvy Account</h1>
+          <p className="text-sm sm:text-base text-gray-600 text-center">Set up your account to manage your business listing</p>
         </div>
 
         <Card className="shadow-lg">
@@ -96,7 +96,7 @@ export default function AccountCreation() {
                     onChange={(e) => handleInputChange('fullName', e.target.value)}
                     placeholder="Enter your full name"
                     required
-                    className="text-lg py-3"
+                    className="text-base sm:text-lg py-3"
                   />
                 </div>
 
@@ -180,7 +180,7 @@ export default function AccountCreation() {
                     onCheckedChange={(checked) => handleInputChange('isOwner', checked as boolean)}
                     required
                   />
-                  <Label htmlFor="isOwner" className="text-sm leading-relaxed">
+                  <Label htmlFor="isOwner" className="text-sm leading-relaxed pr-2">
                     I am the owner or authorized representative of this business and have the authority to create this listing.
                   </Label>
                 </div>
@@ -189,7 +189,7 @@ export default function AccountCreation() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !formData.isOwner}
-                className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700"
+                className="w-full text-base sm:text-lg py-5 sm:py-6 bg-blue-600 hover:bg-blue-700"
               >
                 {isSubmitting ? 'Creating Account...' : '➡️ Continue'}
               </Button>

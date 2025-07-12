@@ -85,7 +85,7 @@ export default function HeroSection() {
 
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-4">
+       <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-12 w-full max-w-3xl mx-auto">
           {/* Exclusive Invite Badge */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -93,11 +93,11 @@ export default function HeroSection() {
               EXCLUSIVE INVITE
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight text-center">
               You've Been Selected for a Free Loyalty Listing
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed text-center">
               Your business has been recognized for its outstanding reputation. Join the Swipe Savvy Rewards Network — completely free.
             </p>
           </div>
@@ -111,12 +111,12 @@ export default function HeroSection() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
-                className="text-lg py-6 pl-6 pr-16 rounded-xl border-2 border-gray-200 focus:border-blue-500 transition-colors"
+                className="text-base sm:text-lg py-4 sm:py-5 pl-4 pr-16 rounded-xl border-2 border-gray-200 focus:border-blue-500 transition-colors w-full"
               />
               <Button
                 onClick={handleSearch}
                 disabled={isSearching || !searchQuery.trim()}
-                className="absolute right-2 top-2 bottom-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg"
+                className="absolute right-2 top-2 bottom-2 px-3 sm:px-4 bg-blue-600 hover:bg-blue-700 rounded-lg"
               >
                 <Search className="w-5 h-5" />
               </Button>
@@ -125,7 +125,7 @@ export default function HeroSection() {
             <Button
               onClick={handleSearch}
               disabled={isSearching || !searchQuery.trim()}
-              className="w-full text-lg py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="w-full text-base sm:text-lg py-5 sm:py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
             >
               {isSearching ? 'Searching...' : '🔍 Locate Your Business to Claim Your Free Listing'}
             </Button>
@@ -139,10 +139,10 @@ export default function HeroSection() {
 
       {/* Testimonials Carousel */}
       <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm py-6 z-10">
-        <div className="overflow-hidden">
-          <div className="flex animate-scroll space-x-8">
+        <div className="overflow-x-auto">
+          <div className="flex animate-scroll space-x-4 sm:space-x-8">
             {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <div key={index} className="flex-shrink-0 bg-white rounded-lg p-4 shadow-md min-w-[300px] mx-2">
+              <div key={index} className="flex-shrink-0 bg-white rounded-lg p-3 sm:p-4 shadow-md min-w-[240px] sm:min-w-[300px] mx-2">
                 <div className="flex items-center mb-2">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />

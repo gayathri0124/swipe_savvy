@@ -81,12 +81,13 @@ export default function SuccessPage() {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
               <CheckCircle className="w-12 h-12 text-green-600" />
             </div>
-            <h1 className="text-5xl font-bold text-gray-900 mb-4">
-              🎉 Congratulations!
-            </h1>
-            <p className="text-2xl text-gray-600 mb-2">
-              Your business listing is now live!
-            </p>
+            <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4">
+  🎉 Congratulations!
+</h1>
+
+<p className="text-lg sm:text-2xl text-gray-600 mb-2">
+  Your business listing is now live!
+</p>
             <Badge variant="secondary" className="text-lg px-4 py-2 bg-green-100 text-green-800">
               ✅ Status: CONFIRMED
             </Badge>
@@ -100,7 +101,7 @@ export default function SuccessPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
                 <div className="flex flex-col items-center">
                   <TrendingUp className="w-8 h-8 text-blue-600 mb-2" />
                   <h3 className="font-semibold text-gray-900">Increased Visibility</h3>
@@ -141,7 +142,7 @@ export default function SuccessPage() {
             </CardHeader>
             
             <CardContent className="relative z-10 pt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Star className="w-5 h-5 text-yellow-600 flex-shrink-0" />
@@ -205,7 +206,7 @@ export default function SuccessPage() {
           {/* Next Steps */}
           <div className="mt-12 text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">What's Next?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📧</span>

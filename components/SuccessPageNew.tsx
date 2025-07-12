@@ -100,17 +100,17 @@ export default function SuccessPageNew() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full opacity-10 animate-pulse"></div>
       </div>
 
-      <div className="relative z-10 py-12 px-4">
+      <div className="relative z-10 py-12 px-4 sm:px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Success Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-24 h-24 bg-green-100 rounded-full mb-6">
               <CheckCircle className="w-16 h-16 text-green-600" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               🎉 Your Business Is Now Live on Swipe Savvy!
             </h1>
-            <p className="text-2xl text-gray-600 mb-6">
+            <p className="text-base sm:text-lg md:text-2xl text-gray-600 mb-6">
               Make the most of it with a limited-time upgrade — first month free + 50% off for life.
             </p>
             <Badge variant="secondary" className="text-lg px-6 py-2 bg-green-100 text-green-800">
@@ -119,7 +119,7 @@ export default function SuccessPageNew() {
           </div>
 
           {/* Two-Card Comparison */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
             {/* Free Plan Card */}
             <Card className="border-2 border-green-200 bg-green-50">
               <CardHeader className="text-center">
@@ -192,11 +192,11 @@ export default function SuccessPageNew() {
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 w-full">
                   <Button
                     onClick={handleUpgrade}
                     disabled={isUpgrading}
-                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-xl py-6 shadow-lg transform hover:scale-105 transition-all duration-200"
+                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-xl py-6 shadow-lg transform hover:scale-105 transition-all duration-200 text-lg sm:text-xl py-4 sm:py-6"
                   >
                     {isUpgrading ? 'Processing...' : '🔥 Yes, Upgrade Me — Risk-Free'}
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -219,7 +219,7 @@ export default function SuccessPageNew() {
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
               What Other Merchants Say About Shop Savvy
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {merchantTestimonials.map((testimonial, index) => (
                 <Card key={index} className="bg-white shadow-lg">
                   <CardContent className="p-6">
@@ -245,7 +245,7 @@ export default function SuccessPageNew() {
           {/* Next Steps */}
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">What Happens Next?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📧</span>
